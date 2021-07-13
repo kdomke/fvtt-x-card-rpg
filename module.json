@@ -8,5 +8,17 @@
   "compatibleCoreVersion": "0.8.8",
   "esmodules": [
     "./dist/x-card-rpg.js"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
   ]
 }
