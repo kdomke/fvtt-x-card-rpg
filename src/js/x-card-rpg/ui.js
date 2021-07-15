@@ -6,9 +6,10 @@ export default class Ui {
     constructor() {
         this._add_x_card_button();
     }
-
+    
     /**
      * Add the button to user menu
+     * @private
      */
     _add_x_card_button() {
         Hooks.on('getSceneControlButtons', buttonsList =>{
@@ -33,22 +34,22 @@ export default class Ui {
      * - Open a window
      */
     async click_handler(){
-        game.socket.emit("module.x-card-rpg", {"event": "XCardRpg"})
+        game.socket.emit("module.x-card-rpg")
         Ui.create_windows_xcard();
         this.sendChatMessage();
     }
     
     
     /**
-     * Send a anonymous message to all player and to GM
+     * Send a chat message to all player and to GM
      */
     async sendChatMessage()  {
         const is_anonymous = game.settings.get("x-card-rpg", "anonymous_chat_message");
-        const start_content = is_anonymous ? "Quelqu'un vient" : "Je viens";
+        const start_content = is_anonymous ? game.i18n.localize("XCardRpg.Chat_message_someone") : game.i18n.localize("XCardRpg.Chat_message_me");
         const messageData=  {
             type: CONST.CHAT_MESSAGE_TYPES.OTHER,
             sound :"modules/x-card-rpg/sounds/alert.wav",
-            content: `<p style='text-align:center'><strong>${start_content} de poser un X-Card sur la table.</strong><br>Changeons de sujet s'il vous plait.</p>`
+            content: `<p style='text-align:center'><strong>${start_content} ${game.i18n.localize('XCardRpg.Chat_message_put_a_card')}</strong><br>${game.i18n.localize('XCardRpg.Chat_message_change_subject')}</p>`
         }
         if(is_anonymous){
             messageData.speaker = {
@@ -60,7 +61,7 @@ export default class Ui {
 
 
     /**
-     * Create an application windows
+     * Create an application window to display the X-Card
      * @returns {Promise<void>}
      */
     static async create_windows_xcard() {
