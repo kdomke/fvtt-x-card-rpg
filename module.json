@@ -7,6 +7,28 @@
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "0.8.8",
   "esmodules": [
-    "./dist/x-card-rpg.js"
+    "./scripts/x-card-rpg.js"
+  ],
+  "styles" : [
+    "./css/x-card-rpg.css"
+  ],
+
+  "dependencies": [
+    {
+      "name": "settings-extender"
+    }
+  ],
+  "socket": true,
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
   ]
 }
