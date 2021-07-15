@@ -1,6 +1,7 @@
-const mix = require('laravel-mix').setPublicPath('dist');
+const mix = require('laravel-mix');
 
-mix.js('src/x-card-rpg.js', 'dist');
+mix.js('src/js/x-card-rpg.js', 'scripts')
+    .sass('src/css/x-card-rpg.scss', 'css');
 
 
 // Add versioning to assets in production environment
