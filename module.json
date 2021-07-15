@@ -1,7 +1,7 @@
 {
   "name": "x-card-rpg",
   "title": "X-Card",
-  "description": "Display a X-card.",
+  "description": "This module adds the possibility to broadcast an x-card during the game at any time. A button is added to the basic controls to do this. You also have the possibility to provide your own x-card image. Finally a message is added to the chat window when the button is clicked.",
   "author": "Aurélien Chappard (Deefuse)",
   "version": "1.0.0",
   "minimumCoreVersion": "0.6.0",
@@ -12,7 +12,6 @@
   "styles" : [
     "./css/x-card-rpg.css"
   ],
-
   "dependencies": [
     {
       "name": "settings-extender"
@@ -30,5 +29,10 @@
       "name": "Français",
       "path": "lang/fr.json"
     }
-  ]
+  ],
+  "bugs": "https://github.com/achappard/fvtt-x-card-rpg/issues",
+  "changelog": "https://github.com/achappard/fvtt-x-card-rpg/releases",
+  "url": "https://github.com/achappard/fvtt-x-card-rpg",
+  "manifest": "https://github.com/achappard/fvtt-x-card-rpg/releases/latest/download/module.json",
+  "download": "https://github.com/achappard/fvtt-x-card-rpg/releases/download/v1.0.0/module.zip"
 }
