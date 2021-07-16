@@ -1,6 +1,6 @@
 {
   "name": "x-card-rpg",
-  "title": "X-Card",
+  "title": "X-Card Rpg",
   "description": "This module adds the possibility to broadcast an x-card during the game at any time. A button is added to the basic controls to do this. You also have the possibility to provide your own x-card image. Finally a message is added to the chat window when the button is clicked.",
   "author": "Aurélien Chappard (Deefuse)",
   "version": "1.0.0",
