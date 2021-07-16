@@ -1,5 +1,5 @@
 import extraTypes from '../../../../settings-extender/settings-extender.js'
-
+console.info(extraTypes.FilePickerImage);
 export default class Settings {
     constructor() {
         this._register_x_card_rpg_settings();
@@ -36,6 +36,6 @@ export default class Settings {
      */
     static async getXCardPath(){
         const img_xcard_custom = game.settings.get("x-card-rpg", "x_card_rpg_custom_image");
-        return  img_xcard_custom === null ? 'modules/x-card-rpg/img/x-card-rpg.png' : img_xcard_custom;
+        return  img_xcard_custom === null ? './modules/x-card-rpg/img/x-card-rpg.png' : img_xcard_custom;
     }
 }

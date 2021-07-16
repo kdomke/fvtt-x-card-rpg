@@ -16,6 +16,7 @@
   "devDependencies": {
     "async-image": "^1.0.0",
     "laravel-mix": "^6.0.25",
+    "laravel-mix-zip": "^1.0.3",
     "resolve-url-loader": "^4.0.0",
     "sass": "^1.35.2",
     "sass-loader": "^12.1.0"
