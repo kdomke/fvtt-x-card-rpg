@@ -1,11 +1,11 @@
 {
   "name": "x-card-rpg",
   "title": "X-Card Rpg",
-  "description": "This module adds the possibility to broadcast an x-card during the game at any time. A button is added to the basic controls to do this. You also have the possibility to provide your own x-card image. Finally a message is added to the chat window when the button is clicked.",
+  "description": "Yet another module for Foundry VTT that implements the X-Card safety tool by John Stavropoulos. http://tinyurl.com/x-card-rpg. This module adds the possibility to broadcast an x-card during the game at any time. A button is added to the basic controls to do this. You also have the possibility to provide your own x-card image. Finally a message is added to the chat window when the button is clicked.",
   "author": "Aurélien Chappard (Deefuse)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.8.8",
+  "compatibleCoreVersion": "0.8.9",
   "esmodules": [
     "./scripts/x-card-rpg.js"
   ],

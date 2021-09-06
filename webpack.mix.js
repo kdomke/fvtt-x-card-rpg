@@ -15,6 +15,6 @@ if ( mix.inProduction() ) {
             }
         }
     });
-    mix.zip(['templates', 'img', 'sounds', 'scripts', 'lang', 'css'], ['module.json'], 'x-card-rpg.zip');
+    mix.zip(['templates', 'img', 'sounds', 'scripts', 'lang', 'css'], ['module.json', 'README.md'], 'x-card-rpg.zip');
 }
 Mix.manifest.refresh = _ => void 0
