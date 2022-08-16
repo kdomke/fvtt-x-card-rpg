@@ -5,7 +5,7 @@
   "author": "Aurélien Chappard (Deefuse)",
   "version": "1.0.1",
   "minimumCoreVersion": "0.6.0",
-  "compatibleCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
   "esmodules": [
     "./scripts/x-card-rpg.js"
   ],
@@ -28,6 +28,11 @@
       "lang": "fr",
       "name": "Français",
       "path": "lang/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
     }
   ],
   "bugs": "https://github.com/achappard/fvtt-x-card-rpg/issues",
