@@ -25,6 +25,7 @@ export default class Ui {
                     xCard: {
                         name: "xCard",
                         title: "XCardRpg.ButtonTitle",
+                        icon: "fas fa-times",
                         button: true,
                         onClick : this.click_handler,
                         visible: true,
