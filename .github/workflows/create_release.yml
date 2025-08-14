@@ -1,0 +1,65 @@
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+name: Create Release
+
+jobs:
+  prepare:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      # Substitute the Manifest and Download URLs in the module.json
+      - name: Substitute Manifest and Download Links For Versioned Ones
+        id: sub_manifest_link_version
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: "module.json"
+        env:
+          version: ${{env.RELEASE_VERSION}}
+          url: https://github.com/${{github.repository}}
+          manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
+          download: https://github.com/${{github.repository}}/releases/download/${{env.RELEASE_VERSION}}/package.zip
+
+      # Create a zip file with all files required by the module to add to the release
+      - run: zip -r ./package.zip img/ lang/ /sounds /templates module.json
+      
+      - name: Update Release with artifacts    
+        id: create_version_release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true # Set this to false if you want to prevent updating existing releases
+          name: ${{ github.event.release.name }}
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts: "./module.json, ./package.zip"
+          tag: ${{ github.event.release.tag_name }}
+          body: ${{ github.event.release.body }}
+
+
+#      - name: Publish Module to FoundryVTT Website
+#        id: publish-to-foundry-website
+#        uses: cs96and/FoundryVTT-release-package@v1
+#        with:
+#          package-token: ${{ secrets.PACKAGE_TOKEN }}
+#          manifest-url: https://github.com/${{github.repository}}/releases/latest/download/module.json
