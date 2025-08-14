@@ -38,10 +38,22 @@ jobs:
           version: ${{env.RELEASE_VERSION}}
           url: https://github.com/${{github.repository}}
           manifest: https://github.com/${{github.repository}}/releases/latest/download/module.json
-          download: https://github.com/${{github.repository}}/releases/download/${{env.RELEASE_VERSION}}/package.zip
+          download: https://github.com/${{github.repository}}/releases/download/${{env.RELEASE_VERSION}}/x-card-rpg.zip
+
+      # Prepare Laravel Build
+      - name: Prepare laravel build
+        id: prepare_laravel_build
+        run: npm install
+
+      # Prepare Laravel Build
+      - name: Run laravel build
+        id: run_laravel_build
+        env:
+          NODE_ENV: production
+        run: npm run build-prod
 
       # Create a zip file with all files required by the module to add to the release
-      - run: zip -r ./package.zip img/ lang/ /sounds /templates module.json
+#      - run: zip -r ./package.zip img/ lang/ /sounds /templates module.json
       
       - name: Update Release with artifacts    
         id: create_version_release
@@ -52,7 +64,7 @@ jobs:
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "./module.json, ./package.zip"
+          artifacts: "./module.json, ./x-card-rpg.zip"
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
 
