@@ -15,18 +15,17 @@ export default class Ui {
      * @private
      */
     _add_x_card_button() {
-        Hooks.on('getSceneControlButtons', buttonsList =>{
-
-            buttonsList.array.forEach(menuButton => {
-                menuButton.xCardRPG = {
-                        name: "XCardRpg.ButtonName",
-                        title: "XCardRpg.ButtonTitle",
-                        icon: "fas fa-times",
-                        button: true,
-                        onClick : this.click_handler.bind(this),
+        Hooks.on('getSceneControlButtons', buttonsList)
+        console.log("x-card-rpg hook called")
+        buttonsList.array.forEach(menuButton => {
+            menuButton.xCardRPG = {
+                    name: "XCardRpg.ButtonName",
+                    title: "XCardRpg.ButtonTitle",
+                    icon: "fas fa-times",
+                    button: true,
+                    onClick : this.click_handler.bind(this),
                 }
-            });
-        })
+        });
     }
 
     /**
