@@ -50,7 +50,7 @@ jobs:
         id: run_laravel_build
         env:
           NODE_ENV: production
-        run: npm run build-prod
+        run: npx webpack
 
       # Create a zip file with all files required by the module to add to the release
 #      - run: zip -r ./package.zip img/ lang/ /sounds /templates module.json
