@@ -17,20 +17,26 @@ export default class Ui {
     _add_x_card_button() {
         Hooks.on('getSceneControlButtons', controls => {
             controls.xCardRPG = {
-                name: "XCardRpg.ButtonName",
-                title: "XCardRpg.ButtonTitle",
+                name: "XCardRpg",
+                title: "XCard",
                 icon: "fas fa-times",
                 activeTool: "xCard",
                 tools: {
                     xCard: {
                         name: "xCard",
-                        title: "XCardRpg.ButtonTitle",
+                        title: "X-Card",
                         icon: "fas fa-times",
                         button: true,
                         onClick : this.click_handler,
                         visible: true,
                         order: 0
-                    }
+                    },
+                    dummy: {
+                        //Dummy tool because Foundry does not like it when there's no valid 'active' tool available, it's hidden on the 'renderSceneControls' hook. https://github.com/foundryvtt/foundryvtt/issues/12966
+                        name: "dummy",
+                        visible: true,
+                        order: 9
+                    },
                 }
             }
         })       
