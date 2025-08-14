@@ -1,5 +1,3 @@
-import extraTypes from '../../../../settings-extender/settings-extender.js'
-console.info(extraTypes.FilePickerImage);
 export default class Settings {
     constructor() {
         this._register_x_card_rpg_settings();
@@ -24,7 +22,8 @@ export default class Settings {
                 hint: game.i18n.localize('XCardRpg.Setting_custom_img_hint'),
                 scope: "world",
                 config: true,
-                type: extraTypes.FilePickerImage,
+                type: String,
+                filePicker: true, 
                 default: ''
             });
         })
