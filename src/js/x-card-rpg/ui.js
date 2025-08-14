@@ -20,8 +20,17 @@ export default class Ui {
                 name: "XCardRpg.ButtonName",
                 title: "XCardRpg.ButtonTitle",
                 icon: "fas fa-times",
-                button: true,
-                onClick : this.click_handler.bind(this),
+                activeTool: "xcard",
+                tools: {
+                    xcard: {
+                        name: "XCardRpg.ButtonName",
+                        title: "XCardRpg.ButtonTitle",
+                        button: true,
+                        onClick : this.click_handler.bind(this),
+                        visible: true,
+                        order: 0
+                    }
+                }
             }
         })       
     }
