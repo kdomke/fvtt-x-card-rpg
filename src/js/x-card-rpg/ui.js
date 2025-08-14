@@ -4,7 +4,10 @@ import loadImage from 'async-image';
 
 export default class Ui {
     constructor() {
+        let oldDH = CONFIG.debug.hooks;
+        CONFIG.debug.hooks = true;
         this._add_x_card_button();
+        CONFIG.debug.hooks = oldDH;
     }
     
     /**
