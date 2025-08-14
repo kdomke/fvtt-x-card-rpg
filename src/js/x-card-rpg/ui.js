@@ -13,18 +13,16 @@ export default class Ui {
      */
     _add_x_card_button() {
         Hooks.on('getSceneControlButtons', buttonsList =>{
-            let userMenu = buttonsList.find(element => element.name === 'token' )
-            if(userMenu){
-                userMenu.tools.push(
-                    {
+
+            buttonsList.array.forEach(menuButton => {
+                menuButton.xCardRPG = {
                         name: "XCardRpg.ButtonName",
                         title: "XCardRpg.ButtonTitle",
                         icon: "fas fa-times",
                         button: true,
                         onClick : this.click_handler.bind(this),
-                    }
-                );
-            }
+                }
+            });
         })
     }
 
